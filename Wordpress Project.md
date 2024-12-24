@@ -63,7 +63,7 @@ tar -xzf latest.tar.gz
 ls
 ```
 
-When you enter ls it should deisplay these files and directory "latest.tar.gz" and "wordpress"
+When you enter ls it should display these files and directory "latest.tar.gz" and "wordpress"
 
 ```bash
 cd wordpress
