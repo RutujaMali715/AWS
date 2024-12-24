@@ -17,7 +17,7 @@ sudo yum install -y mysql
 export MYSQL_HOST=<your-RDS-endpoint>
 ```
 
-Example : export MYSQL_HOST=yt-wordpress.cfpgnjehw330.ap-south-1.rds.amazonaws.com
+Example : export MYSQL_HOST=wordpress.cfkemkqqeqi8.ap-south-1.rds.amazonaws.com
 
 
 **Now Connect to mysql to create required user users that we are going to use**
@@ -25,14 +25,14 @@ Example : export MYSQL_HOST=yt-wordpress.cfpgnjehw330.ap-south-1.rds.amazonaws.c
 *Connect to RDS using below command (Replace the host-info and user info)*
 
 ```bash
-mysql -h yt-wordpress.cfpgnjehw330.ap-south-1.rds.amazonaws.com -P 3306 -u admin -p
+mysql -h wordpress.cfkemkqqeqi8.ap-south-1.rds.amazonaws.com -P 3306 -u admin -p
 ```
 
 Create required Database, user and provide permisisons to newsly created user on schema we created.
 
 ```bash
 CREATE DATABASE wordpress;
-CREATE USER 'wordpressuser' IDENTIFIED BY 'Avinash1234';
+CREATE USER 'wordpressuser' IDENTIFIED BY 'Rutuja12345';
 GRANT ALL PRIVILEGES ON wordpress.* TO wordpressuser;
 FLUSH PRIVILEGES;
 Exit
@@ -108,14 +108,14 @@ https://api.wordpress.org/secret-key/1.1/salt/
 ***Acquire the valid information and update wp-config file accordingly***
 
 ```bash
-define('AUTH_KEY',         '+7CA?k*Ju&8eCfg=/aFKo0tO5Tn73Cg 9|Ed73k|Gw(3^');
-define('SECURE_AUTH_KEY',  ':H$M&FvbE6t:EwH5ik/D!@]@%Dv3!-Q^hNH3*O+-$L6c*|');
-define('LOGGED_IN_KEY',    'g9?;b_A BNW[; $9N^E2^jt$LkF 8_^baTmjhp<eE5GUd');
-define('NONCE_KEY',        'G;Wf@|;jzQh>R812&-x^cPoq`tOOu>q)#JVa Y%No%.JpZ[');
-define('AUTH_SALT',        'up^dE)4&x/?]1[thjghhjjhz6Vhiohr(dVMh+d5=R<.l_#l');
-define('SECURE_AUTH_SALT', '@%ka=9?}BQ[m#29D+@jkgjkhjkhjkhkjhkjdTZ`MT{|fypE~');
-define('LOGGED_IN_SALT',   'o!UX5|LW4eijhjkbhkjhkjkjbnjjb/1JSPS?e`YW*nrWb|FG ');
-define('NONCE_SALT',       '+t}kH4DA`jhbjkbjkbjkbjkbjkbt8(iWX(]e?&tV;k:>|)IoE');
+define('AUTH_KEY',         'N`.[pmTxW?-6:Gx%OS_=S8X~N7|;{@yjN&xPAS(y+Ykdxf).oA-+3M/Q9Jyt#?&H');
+define('SECURE_AUTH_KEY',  'O_t-/UJ&QoJ%f|RW[Dq)<L|~aMrkNAl+66BzAPLUWTTQNSKc/O#<_|g:UiKZ%8{Y');
+define('LOGGED_IN_KEY',    '-!mak)|,lbKe./EsN7CI2w5IE9sl0-GbCvNAww$A{@~ot`@oHkMf2y~1_|M]-nOk');
+define('NONCE_KEY',        'D|LL=FDDOzCx>WURKYA[l[CBV@+XhS0gCxUX[?u`)T)8o)a-uIXe(LSI w}^7pHQ');
+define('AUTH_SALT',        'yb41agSwX*OqA&f) :G}T*PN8rf52(1BDAQy=Md]+jYW0o0C,4|u|k66`t*N,gxx');
+define('SECURE_AUTH_SALT', 't|OcF/mpCnO4p*?HgO/DiX>m9=u>}1L.+)>-p5SRl|> ;iRB8^AI+)zY/llP3N+K');
+define('LOGGED_IN_SALT',   'MHb-8<e wZ/2Xo:cISiF:tP`9|`I0s` Bd1 y 3X7K|c~-6S^`0[J2@IuSBdE+Wa');
+define('NONCE_SALT',       'wcEwuc9TdhwSOxw0we59y;^8{G,xvtt6m0hj3?c-Rn9PglVr/OKg#QjCbyH|7Jb{');
 ```
 
 **Now install dependencies**
